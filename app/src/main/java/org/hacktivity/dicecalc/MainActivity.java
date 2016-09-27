@@ -35,12 +35,12 @@ public class MainActivity extends AppCompatActivity {
         Button b = (Button) view;
         String buttonText = b.getText().toString();
 
-        // TODO: Case: dn[extraneous numbers]
-        // TODO: Case: d[n]d[n]
+        if ((codeStr.size() > 0) && codeStr.get(codeStr.size()-1).matches(".*d.*") && buttonText.matches(".*d.*")) {
+            Toast.makeText(this, "ERROR: Invalid Input", Toast.LENGTH_SHORT).show();
+        }
 
-        if ((codeStr.size() > 0) && codeStr.get(codeStr.size()-1).matches("d") &&
-                buttonText.matches("d") ) {
-            Toast.makeText(this, "ERROR: Illegal Arguments", Toast.LENGTH_SHORT).show();
+        else if ((codeStr.size() > 0) && codeStr.get(codeStr.size()-1).matches(".*d.*") && buttonText.matches("[0-9]+")) {
+            Toast.makeText(this, "ERROR: Invalid Input", Toast.LENGTH_SHORT).show();
         }
         else {
             codeStr.add(buttonText);
