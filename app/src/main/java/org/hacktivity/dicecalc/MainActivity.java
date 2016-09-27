@@ -1,10 +1,13 @@
 package org.hacktivity.dicecalc;
 
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import java.lang.String;
 import java.util.ArrayList;
 
@@ -14,8 +17,9 @@ public class MainActivity extends AppCompatActivity {
 
     BlumBlumShub bbs = new BlumBlumShub(2310);
     EditText etCalc;
-    String codeStr = "";
-    int result=0;
+    ArrayList<String> codeStr = new ArrayList<String>();
+    int result = 0;
+    boolean err = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,22 +35,49 @@ public class MainActivity extends AppCompatActivity {
         Button b = (Button) view;
         String buttonText = b.getText().toString();
 
-        codeStr = codeStr + buttonText;
-        etCalc.setText(codeStr);
+        // TODO: Case: dn[extraneous numbers]
+        // TODO: Case: d[n]d[n]
 
+        if ((codeStr.size() > 0) && codeStr.get(codeStr.size()-1).matches("d") &&
+                buttonText.matches("d") ) {
+            Toast.makeText(this, "ERROR: Illegal Arguments", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            codeStr.add(buttonText);
+            etCalc.setText(condenseArray(codeStr));
+        }
+    }
+
+    public void calcButtonClickBackspace(View view) {
+        Button b = (Button) view;
+
+        if (!codeStr.isEmpty()) {
+            codeStr.remove(codeStr.size() - 1);
+        }
+        etCalc.setText(condenseArray(codeStr));
     }
 
     public void calcButtonRoll(View view) {
-        if (codeStr.length() > 0) {
-            etCalc.setText(Integer.toString(multiPartRoll(codeStr)));
+        if (!codeStr.isEmpty()) {
+            etCalc.setText(Integer.toString(multiPartRoll(condenseArray(codeStr))));
         }
-        codeStr = "";
+        codeStr.clear();
+    }
+
+    public String condenseArray(ArrayList<String> al) {
+        String res = "";
+        int i;
+
+        for (i = 0; i < al.size(); i++) {
+            res += al.get(i);
+        }
+
+        return (res);
     }
 
     public int multiPartRoll(String roll) {
         String[] parts = roll.split("(?=[+-])"); //split by +-, keeping them
         int total = 0;
-
 
         for (String partOfRoll : parts) { //roll each dice specified
 
@@ -54,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
                 String[] splitString = (partOfRoll.split("d"));
                 int times = Integer.parseInt(splitString[0]);
                 int die = Integer.parseInt(splitString[1]);
-                int i; int negative = 1;
+                int i;
+                int negative = 1;
 
                 if (times < 0) {
                     negative = -1;
@@ -65,9 +97,7 @@ public class MainActivity extends AppCompatActivity {
                     String rollStr = "d" + die;
                     total += negative * singleRoll(rollStr);
                 }
-            }
-            else
-            {
+            } else {
                 total += singleRoll(partOfRoll);
             }
         }
@@ -75,7 +105,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public int singleRoll(String roll) {
-        if (roll.equals("")) {
+        if (roll.equals("") ||
+                roll.equals("+") ||
+                roll.equals("-")) {
             return 0;
         }
 
@@ -88,4 +120,5 @@ public class MainActivity extends AppCompatActivity {
             result = -result;
         return result;
     }
+
 }

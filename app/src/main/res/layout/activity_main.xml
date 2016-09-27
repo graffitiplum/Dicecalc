@@ -12,256 +12,255 @@
 
 
     <TableRow
-        android:layout_height="wrap_content"
         android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal">
 
 
         <EditText
+            android:id="@+id/calc_box"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:ems="10"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:id="@+id/calc_box"
             android:layout_columnSpan="3"
             android:layout_rowSpan="2"
-            android:hint="ex: 5d20+8"
-            android:textAlignment="textEnd"
-            android:fontFamily="monospace"
             android:layout_span="5"
-            android:textSize="24sp" />
+            android:ems="10"
+            android:fontFamily="monospace"
+            android:hint="ex: 5d20+8"
+            android:inputType="text"
+
+            android:textSize="24sp"
+            android:textIsSelectable="false"
+            android:textAlignment="textEnd" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_gravity="left|top"
+            android:layout_weight="1"
+            android:text="" />
+
+        <TextView
+            android:layout_gravity="left|top"
+            android:layout_weight="1"
+            android:text="" />
+
+        <Button
+            android:id="@+id/backspace"
+            android:layout_gravity="left|top"
+            android:layout_weight="1"
+            android:onClick="calcButtonClickBackspace"
+            android:text="DELETE" />
 
     </TableRow>
 
 
-        <TextView
-            android:id="@+id/tvnullx"
-            android:layout_gravity="left|top"
-            android:layout_weight="1"
-            android:text=""
-            />
-
     <TableRow
         android:id="@+id/tableRow1"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/d20"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="d20"
             android:onClick="calcButtonClick"
-            />
+            android:text="d20" />
 
         <Button
             android:id="@+id/d12"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="d12"
             android:onClick="calcButtonClick"
-            />
+            android:text="d12" />
 
         <Button
             android:id="@+id/d10"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="d10"
             android:onClick="calcButtonClick"
-            />
+            android:text="d10" />
 
     </TableRow>
 
 
     <TableRow
         android:id="@+id/tableRow2"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/d8"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="d8"
             android:onClick="calcButtonClick"
-            />
+            android:text="d8" />
 
         <Button
             android:id="@+id/d6"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="d6"
             android:onClick="calcButtonClick"
-            />
+            android:text="d6" />
 
         <Button
             android:id="@+id/d4"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="d4"
             android:onClick="calcButtonClick"
-            />
+            android:text="d4" />
 
-        </TableRow>
+    </TableRow>
 
 
     <TableRow
         android:id="@+id/tableRow3"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/n7"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="7"
             android:onClick="calcButtonClick"
-            />
+            android:text="7" />
 
         <Button
             android:id="@+id/n8"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="8"
             android:onClick="calcButtonClick"
-            />
+            android:text="8" />
 
         <Button
             android:id="@+id/n9"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="9"
             android:onClick="calcButtonClick"
-            />
+            android:text="9" />
 
-        </TableRow>
+    </TableRow>
 
 
     <TableRow
         android:id="@+id/tableRow4"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/n4"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="4"
             android:onClick="calcButtonClick"
-            />
+            android:text="4" />
 
         <Button
             android:id="@+id/n5"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="5"
             android:onClick="calcButtonClick"
-            />
+            android:text="5" />
 
         <Button
             android:id="@+id/n6"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="6"
             android:onClick="calcButtonClick"
-            />
+            android:text="6" />
 
-        </TableRow>
+    </TableRow>
 
 
     <TableRow
         android:id="@+id/tableRow5"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/n1"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="1"
             android:onClick="calcButtonClick"
-            />
+            android:text="1" />
 
         <Button
             android:id="@+id/n2"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="2"
             android:onClick="calcButtonClick"
-            />
+            android:text="2" />
 
         <Button
             android:id="@+id/n3"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="3"
             android:onClick="calcButtonClick"
-            />
+            android:text="3" />
 
-        </TableRow>
+    </TableRow>
 
 
     <TableRow
         android:id="@+id/tableRow6"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/minus"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="-"
             android:onClick="calcButtonClick"
-            />
+            android:text="-" />
 
         <Button
             android:id="@+id/n0"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="0"
             android:onClick="calcButtonClick"
-            />
+            android:text="0" />
 
         <Button
             android:id="@+id/plus"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text="+"
             android:onClick="calcButtonClick"
-            />
-        </TableRow>
+            android:text="+" />
+    </TableRow>
 
     <TextView
         android:id="@+id/tvnully"
         android:layout_gravity="left|top"
         android:layout_weight="1"
-        android:text=""
-        />
+        android:text="" />
 
     <TableRow
         android:id="@+id/tableRow7"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/tvnull2"
             android:layout_gravity="left|top"
             android:layout_weight="1"
-            android:text=""
-            />
+            android:text="" />
 
-    <Button
-        android:id="@+id/nGO"
-        android:layout_gravity="left|top"
-        android:layout_weight="1"
-        android:text="ROLL"
-        android:onClick="calcButtonRoll"
-        android:background="@android:color/holo_green_dark"
-        android:textColor="@android:color/white"
-        android:textAllCaps="false"
-        android:textSize="20sp" />
+        <Button
+            android:id="@+id/nGO"
+            android:layout_gravity="left|top"
+            android:layout_weight="1"
+            android:background="@android:color/holo_green_dark"
+            android:onClick="calcButtonRoll"
+            android:text="ROLL"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
     </TableRow>
 
 </TableLayout>
